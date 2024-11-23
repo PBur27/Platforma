@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function MainPageNav() {
 
     return (
-        <Navbar fixed="top" expand="lg" className="bg-body-secondary fs-1">
+        <Navbar expand="lg" className="bg-body-secondary fs-1">
             <Container fluid>
                 <Navbar.Brand className='fs-1 ms-2' href="#home">
                     <img

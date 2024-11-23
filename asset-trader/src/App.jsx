@@ -1,12 +1,18 @@
 import './App.css'
 import NavBar from "./components/MainPageNavBar"
+import MainPageFilter from './components/MainPageFilter'
+import { Container } from 'react-bootstrap'
 
 function App() {
   return (
     <>
-      <div>
+
+      <header>
         <NavBar></NavBar>
-      </div>
+      </header>
+      <MainPageFilter></MainPageFilter>
+
+
     </>
   )
 }
