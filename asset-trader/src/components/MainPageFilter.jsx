@@ -7,7 +7,7 @@ function MainPageFilter() {
     return (
         <Container fluid className="m-5">
             <Form>
-                <Row>
+                <Row className="mx-0">
                     <Col xs={6} className="mt-2">
                         <FormGroup controlId="filterName">
                             <FormLabel>Name</FormLabel>

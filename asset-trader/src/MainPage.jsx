@@ -1,20 +1,19 @@
 import './App.css'
-import NavBar from "./components/MainPageNavBar"
+import TitleBar from "./components/TitleBar"
 import MainPageFilter from './components/MainPageFilter'
 import { Container } from 'react-bootstrap'
 
-function App() {
+function MainPage() {
   return (
     <>
 
       <header>
-        <NavBar></NavBar>
+        <TitleBar></TitleBar>
       </header>
-      <MainPageFilter></MainPageFilter>
 
 
     </>
   )
 }
 
-export default App
+export default MainPage
