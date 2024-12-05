@@ -1,0 +1,48 @@
+@use "../node_modules/bootstrap/scss/bootstrap";
+
+$primary: rgb(25, 35, 45);
+$secondary: rgb(200, 210, 220);
+$text-primary: rgb(220, 230, 240);
+$text-secondary: rgb(15, 25, 35);
+
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#titleBar {
+	background-color: $secondary;
+}
+
+#logo{
+	display:inline-flex;
+	align-items: center;
+	font-size: 40px;
+	font-weight: 500;
+	font-family: cursive;
+}
+
+#logoImage{
+	height: 60px;
+	width: 60px;
+}
+
+.dropdown-menu{
+	background-color: $primary;
+}
+.dropdown-toggle.show{
+	background-color: darken($color: $secondary, $amount: 10);
+}
+.dropdown-toggle{
+	border: 0;
+}
+.dropdown-item{
+	color: $text-primary;
+}
+.dropdown-item:hover{
+	background-color: $secondary;
+	color: $text-secondary;
+}

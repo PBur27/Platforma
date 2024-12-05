@@ -37,7 +37,7 @@ function AccountButton({isLoggedIn}) {
     return (
         <Dropdown drop="start">
             <DropdownToggle variant="">
-                <Image src="public/account icon.png" style={{ width: '60px', height: '60px' }}></Image>
+                <Image src="/account icon.png" style={{ width: '60px', height: '60px' }}></Image>
             </DropdownToggle>
             {accountMenu}
         </Dropdown>
