@@ -17,30 +17,42 @@ html {
 	background-color: $secondary;
 }
 
-#logo{
-	display:inline-flex;
+#logo {
+	display: inline-flex;
 	align-items: center;
 	font-size: 40px;
 	font-weight: 500;
 	font-family: cursive;
 }
 
-#logoImage{
+#logoImage {
 	height: 60px;
 	width: 60px;
 }
 
-.dropdown-menu{
-	background-color: $primary;
+.dropdown-menu {
+	& {
+		background-color: $primary;
+		color: $text-primary;
+	}
 }
-.dropdown-toggle.show{
-	background-color: darken($color: $secondary, $amount: 10);
-}
-.dropdown-toggle{
+
+.dropdown-toggle {
 	border: 0;
+
+	&.show {
+		background-color: darken($secondary, 10);
+	}
 }
-.dropdown-item{
+
+.dropdown-item {
 	color: $text-primary;
+
+	&:hover {
+		background-color: $secondary;
+		color: $text-secondary;
+	}
+}
 }
 .dropdown-item:hover{
 	background-color: $secondary;

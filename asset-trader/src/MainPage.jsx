@@ -1,6 +1,5 @@
 import '../stylesheets/custom.scss'
 import TitleBar from "./components/TitleBar"
-import MainPageFilter from './components/MainPageFilter'
 import { Container } from 'react-bootstrap'
 import MainPageTopAssetBar from './components/MainPageTopAssetbar'
 
