@@ -2,6 +2,7 @@ import '../stylesheets/custom.scss'
 import TitleBar from "./components/TitleBar"
 import MainPageFilter from './components/MainPageFilter'
 import { Container } from 'react-bootstrap'
+import MainPageTopAssetBar from './components/MainPageTopAssetbar'
 
 function MainPage() {
   return (
@@ -11,9 +12,7 @@ function MainPage() {
         <TitleBar></TitleBar>
       </header>
       <div>
-        <div className=' m-auto fs-1 w-50 bg-primary'>
-          TEXTEXAMPLE
-        </div>
+        <MainPageTopAssetBar></MainPageTopAssetBar>
       </div>
 
 
