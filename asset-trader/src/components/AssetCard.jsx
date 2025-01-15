@@ -1,19 +1,29 @@
-import { Card, CardBody, CardImg, CardImgOverlay, CardTitle, Container, CardText } from "react-bootstrap"
+
+import { Card, CardBody, CardImg, CardImgOverlay, CardTitle, CardSubtitle, Container, CardText } from "react-bootstrap"
 
 
-function AssetCard(assetData) {
+function AssetCard({data}) {
 
+    console.log(data)
+
+    const imageUrl = `http://localhost:3000/images/${data.image}`;
 
     return (
-        <Card id="assetCard-lg">
-            <CardImg src="" />
+        <Card id="assetCard-xl">
+            <CardImg src={imageUrl}/>
             <CardImgOverlay>
                 <CardBody>
                     <CardTitle>
-                        3D Asset Pack
+                        {data.name}
                     </CardTitle>
+                    <CardSubtitle>
+                        Tags: {data.tags}
+                        <br/>
+                        Author: {data.author}
+                    </CardSubtitle>
                     <CardText>
-                        Description
+                        <br/><br/>
+                        {data.description}
                     </CardText>
                 </CardBody>
             </CardImgOverlay>

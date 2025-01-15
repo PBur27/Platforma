@@ -1,77 +1,34 @@
 import { Container, Row, Col } from "react-bootstrap";
 import AssetCard from "./AssetCard";
-
+import React, { useEffect, useState } from 'react';
 
 function MainPageTopAssetBar() {
 
-    var assetCards = [];
+    const [assets, setAssets] = useState([]);
+
+    useEffect(() => {
+
+        fetch('http://localhost:3000/db')
+            .then((response) => response.json())
+            .then((data) => {
+                setAssets(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching assets:', error);
+            });
+    }, []);
 
     return (
-        <Container>
+        <Container fluid id="topAssetBar">
             <Row>
-                <Container id="topAssetsThisWeekBar">
-                    <Row>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                    </Row>
-                </Container>
-            </Row>
-            <Row>
-                <Col>
-                    <AssetCard></AssetCard>
-                </Col>
-                <Col>
-                    <AssetCard></AssetCard>
-                </Col>
-                <Col>
-                    <AssetCard></AssetCard>
-                </Col>
-                <Col>
-                    <AssetCard></AssetCard>
-                </Col>
-            </Row>
-            <Row>
-                <Container id="topAssetsThisWeekBar">
-                    <Row>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                        <Col>
-                            Top Assets This Week
-                        </Col>
-                    </Row>
-                </Container>
+                {assets.map((asset) => (
+                    <Col key={asset.id}>
+                        <AssetCard data ={asset} /> {/* Pass asset data to AssetCard */}
+                    </Col>
+                ))}
             </Row>
         </Container>
-    )
+    );
 }
 
-export default MainPageTopAssetBar
+export default MainPageTopAssetBar;

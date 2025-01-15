@@ -13,6 +13,11 @@ html {
 	text-align: center;
 }
 
+body{
+	color: $text-primary;
+	background-color: $primary;
+}
+
 #titleBar {
 	background-color: $secondary;
 }
@@ -54,17 +59,69 @@ html {
 	}
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
 	background-color: $secondary;
 	color: $text-secondary;
 }
 
-#assetCard-lg{
-	width: 200px;
-	height: 100px;
+#assetCard-xl {
+	width: 300px;
+	height: 200px;
+	margin-bottom: 20px;
+	color: $text-primary;
+	position: relative;
+	overflow: hidden;
+}
+#assetCard-xl:hover {
+	width: 300px;
+	height: 200px;
+	margin-bottom: 20px;
+	color: rgba(15, 25, 35, 0);
+	position: relative;
+	overflow: hidden;
 }
 
-#topAssetsThisWeekBar{
-	font-size: 4px;
-	font-weight: 800;
+.card-img{
+	object-fit: cover; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.card-img-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: opacity 0.3s ease;
+}
+.card-img-overlay:hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.0);
+	transition: opacity 0.3s ease;
+}
+
+#more-assets-button{
+	width: 100%;
+	height: 120px;
+	font-size: 40px;
+	font-weight: 500;
+	color: $text-secondary;
+	background-color: $secondary;
+}
+#topAssetBar {
+	padding-block: 1rem;
+}
+
+.col {
+	place-items: center;
+}
+
+#asset-search-form{
+	gap: 20px;
 }
