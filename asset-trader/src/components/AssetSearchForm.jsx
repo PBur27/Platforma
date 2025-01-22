@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap'
 
 
@@ -50,16 +50,6 @@ function AssetSearchForm({ onSearch }) {
         placeholder="Search by author"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
-      />
-    </Form.Group>
-
-    {/* Top Checkbox */}
-    <Form.Group controlId="top" className="mb-3">
-      <Form.Check
-        type="checkbox"
-        label="Top"
-        checked={top}
-        onChange={(e) => setTop(e.target.checked)}
       />
     </Form.Group>
 

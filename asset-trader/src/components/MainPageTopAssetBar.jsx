@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import AssetCard from "./AssetCard";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function MainPageTopAssetBar() {
 
