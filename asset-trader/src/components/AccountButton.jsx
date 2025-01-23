@@ -24,11 +24,10 @@ function AccountButton({ isLoggedIn, toggleLogin }) {
                     Sign In
                 </DropdownItem>
                 <DropdownDivider></DropdownDivider>
-                <Link to='/create-account'>
-                    <DropdownItem className="no-underline">
-                        Create an Account
-                    </DropdownItem>
-                </Link>
+                <DropdownItem className="no-underline">
+                    <Link to='/create-account'>Create an Account</Link>
+                </DropdownItem>
+
             </DropdownMenu>
         );
     }
