@@ -6,7 +6,6 @@ function AssetSearchForm({ onSearch }) {
   // State to manage input values
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
-  const [top, setTop] = useState(false);
   const [tags, setTags] = useState('');
 
   // Handle form submission
@@ -17,14 +16,12 @@ function AssetSearchForm({ onSearch }) {
     onSearch({
       name,
       author,
-      top,
       tags
     });
 
     // Reset the form after submission (optional)
     setName('');
     setAuthor('');
-    setTop(false);
     setTags('');
   };
 
@@ -50,16 +47,6 @@ function AssetSearchForm({ onSearch }) {
         placeholder="Search by author"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
-      />
-    </Form.Group>
-
-    {/* Top Checkbox */}
-    <Form.Group controlId="top" className="mb-3">
-      <Form.Check
-        type="checkbox"
-        label="Top"
-        checked={top}
-        onChange={(e) => setTop(e.target.checked)}
       />
     </Form.Group>
 
