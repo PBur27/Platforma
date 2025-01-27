@@ -5,6 +5,7 @@ import '../stylesheets/custom.scss'
 import MainPage from './MainPage.jsx'
 import TitleBar from './components/TitleBar.jsx'
 import AssetSearchPage from './AssetSearchPage.jsx'
+import CreateAccountPage from './CreateAccountPage.jsx'
 
 createRoot(document.getElementById('root')).render(
 
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path='/' element={<MainPage/>}/>
       <Route path='/search' element={<AssetSearchPage/>}/>
+      <Route path='/create-account' element={<CreateAccountPage/>}/>
       
     </Routes>
 

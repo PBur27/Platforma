@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AssetSearchForm from './components/AssetSearchForm';
+import AssetBar from './components/AssetBar';
 import { Container } from 'react-bootstrap';
 import AssetBar from './components/AssetBar';
 
@@ -18,9 +19,13 @@ function AssetSearchPage() {
       })
       .then((fetchedAssets) => {
         const filteredAssets = fetchedAssets.filter((asset) => {
+          if (searchParams.name == "" && searchParams.author == "" && !searchParams.tags) {
+            return true; // Return all assets (or return `false` for no results)
+          }
           return (
             (searchParams.name ? asset.name.toLowerCase().includes(searchParams.name.toLowerCase()) : true) &&
             (searchParams.author ? asset.author.toLowerCase().includes(searchParams.author.toLowerCase()) : true) &&
+            (searchParams.top !== undefined ? asset.top === searchParams.top : true) &&
             (searchParams.tags ? asset.tags.toLowerCase() === searchParams.tags.toLowerCase() : true)
           );
         });
