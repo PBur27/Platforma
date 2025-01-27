@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AssetSearchForm from './components/AssetSearchForm';
 import AssetBar from './components/AssetBar';
 import { Container } from 'react-bootstrap';
-import AssetBar from './components/AssetBar';
+
 
 function AssetSearchPage() {
   const [assets, setAssets] = useState([]);
