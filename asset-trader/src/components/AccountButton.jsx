@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Dropdown, Image, DropdownItem, DropdownMenu, DropdownToggle, DropdownDivider } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -8,26 +7,25 @@ function AccountButton({ isLoggedIn, toggleLogin }) {
     if (isLoggedIn) {
         accountMenu = (
             <DropdownMenu>
-                <DropdownItem>
+                <DropdownItem href="/my-account">
                     My Account
                 </DropdownItem>
-                <DropdownDivider></DropdownDivider>
-                <DropdownItem onClick={toggleLogin}>
+                <DropdownDivider />
+                <DropdownItem onClick={() => toggleLogin(false)}>
                     Log Out
                 </DropdownItem>
             </DropdownMenu>
         );
     } else {
         accountMenu = (
-            <DropdownMenu >
-                <DropdownItem onClick={toggleLogin}>
+            <DropdownMenu>
+                <DropdownItem href="/login">
                     Sign In
                 </DropdownItem>
-                <DropdownDivider></DropdownDivider>
-                <DropdownItem className="no-underline">
-                    <Link to='/create-account'>Create an Account</Link>
+                <DropdownDivider />
+                <DropdownItem className="no-underline" href="/create-account">
+                    Create an Account
                 </DropdownItem>
-
             </DropdownMenu>
         );
     }
@@ -42,18 +40,4 @@ function AccountButton({ isLoggedIn, toggleLogin }) {
     );
 }
 
-function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const toggleLogin = () => {
-        setIsLoggedIn(prevState => !prevState);
-    };
-
-    return (
-        <div>
-            <AccountButton isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} />
-        </div>
-    );
-}
-
-export default App;
+export default AccountButton;

@@ -1,12 +1,23 @@
-import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap'
-
+import React, { useState } from "react";
+import { Button, Card, Form, Row, Col, Accordion, AccordionBody } from "react-bootstrap";
 
 function AssetSearchForm({ onSearch }) {
-  // State to manage input values
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
-  const [tags, setTags] = useState('');
+  const [tags, setTags] = useState([]);
+
+  // Handle tag selection
+  const handleTagChange = (tag) => {
+    setTags((prevTags) => {
+      if (prevTags.includes(tag)) {
+        // If tag is already selected, remove it
+        return prevTags.filter((t) => t !== tag);
+      } else {
+        // If tag is not selected, add it
+        return [...prevTags, tag];
+      }
+    });
+  };
 
   // Handle form submission
   const processAssetData = (event) => {
@@ -22,49 +33,56 @@ function AssetSearchForm({ onSearch }) {
     // Reset the form after submission (optional)
     setName('');
     setAuthor('');
-    setTags('');
+    setTags([]);
   };
 
   return (
-  
     <Form onSubmit={processAssetData} id="asset-search-form">
-    {/* Name Field */}
-    <Form.Group controlId="name" className="mb-3">
-      <Form.Label>Name</Form.Label>
-      <Form.Control
-        type="text"
-        placeholder="Search by name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-    </Form.Group>
+      {/* Name Field */}
+      <Form.Group controlId="name" className="mb-3">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Search by name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Form.Group>
 
-    {/* Author Field */}
-    <Form.Group controlId="author" className="mb-3">
-      <Form.Label>Author</Form.Label>
-      <Form.Control
-        type="text"
-        placeholder="Search by author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-    </Form.Group>
+      {/* Author Field */}
+      <Form.Group controlId="author" className="mb-3">
+        <Form.Label>Author</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Search by author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+      </Form.Group>
 
-    {/* Tags Dropdown */}
-    <Form.Group controlId="tags" className="mb-3">
-      <Form.Label>Tags</Form.Label>
-      <Form.Select value={tags} onChange={(e) => setTags(e.target.value)}>
-        <option value="">Select Tag</option>
-        <option value="2D">2D</option>
-        <option value="3D">3D</option>
-      </Form.Select>
-    </Form.Group>
+      {/* Tags Checklist */}
+      <Form.Group controlId="tags" className="mb-3">
+        <Accordion defaultActiveKey={0}>
+          <Accordion.Header>Tags</Accordion.Header>
+          <Accordion.Body>
+          <Row className="mb-2">
+            {['2D', '3D'].map((tag) => (
+              <Col key={tag}>
+                <Form.Check
+                  type="checkbox"
+                  label={tag}
+                  checked={tags.includes(tag)}
+                  onChange={() => handleTagChange(tag)}
+                />
+              </Col>
+            ))}
+          </Row>
+          </Accordion.Body>
+        </Accordion>
+      </Form.Group>
 
-    {/* Submit Button */}
-    <Button type="submit" variant="primary">
-      Search
-    </Button>
-  </Form>
+      <Button type="submit" variant="primary">Search</Button>
+    </Form>
   );
 }
 

@@ -3,7 +3,6 @@ import AssetSearchForm from './components/AssetSearchForm';
 import AssetBar from './components/AssetBar';
 import { Container } from 'react-bootstrap';
 
-
 function AssetSearchPage() {
   const [assets, setAssets] = useState([]);
 
@@ -19,14 +18,20 @@ function AssetSearchPage() {
       })
       .then((fetchedAssets) => {
         const filteredAssets = fetchedAssets.filter((asset) => {
-          if (searchParams.name == "" && searchParams.author == "" && !searchParams.tags) {
-            return true; // Return all assets (or return `false` for no results)
+          if (
+            searchParams.name === "" &&
+            searchParams.author === "" &&
+            searchParams.tags.length === 0
+          ) {
+            return true; // Return all assets if no filter criteria
           }
+
           return (
             (searchParams.name ? asset.name.toLowerCase().includes(searchParams.name.toLowerCase()) : true) &&
             (searchParams.author ? asset.author.toLowerCase().includes(searchParams.author.toLowerCase()) : true) &&
-            (searchParams.top !== undefined ? asset.top === searchParams.top : true) &&
-            (searchParams.tags ? asset.tags.toLowerCase() === searchParams.tags.toLowerCase() : true)
+            (searchParams.tags.length > 0
+              ? searchParams.tags.some(tag => asset.tags.includes(tag))  // Check if any selected tag matches the asset's tags
+              : true)
           );
         });
 
@@ -39,9 +44,7 @@ function AssetSearchPage() {
 
   return (
     <Container>
-      <h1>
-        Search for Assets
-      </h1>
+      <h1>Search for Assets</h1>
       <AssetSearchForm onSearch={sendSearchData} />
       <AssetBar assets={assets} />
     </Container>

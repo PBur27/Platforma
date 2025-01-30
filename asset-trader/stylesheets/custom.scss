@@ -138,3 +138,69 @@ a {
 	color: $text-primary;
 	text-decoration: none;
 }
+
+.accordion {
+	background-color: $primary;
+	color: $text-primary;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	width: 100%;
+	border-radius: 0.25rem;
+	display: block;
+	border: none;
+}
+
+.accordion-button {
+	background-color: $primary;
+	color: $text-primary;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	width: 100%;
+	border-radius: 0.25rem;
+	display: block;
+	border: none;
+}
+
+.accordion-header:focus {
+	box-shadow: none;
+}
+
+.accordion-body {
+	padding: 15px;
+	background-color: $primary;
+}
+
+.checkbox label {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.accordion-button:not(.collapsed) {
+	background-color: $secondary;
+	color: $text-secondary;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	width: 100%;
+	border-radius: 0.25rem;
+	display: block;
+	border: none;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+.accordion-button:focus,
+.accordion-button:active {
+
+	box-shadow: none !important;
+	border: none !important;
+}
+
+.accordion-button::after {
+	transform: none !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
